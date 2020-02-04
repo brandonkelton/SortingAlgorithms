@@ -9,15 +9,15 @@ namespace SortingAlgorithms
     /// </summary>
     public class InsertionSort
     {
-        public static int[] Sort(int[] inputArray)
+        public static IComparableItem<T>[] Sort<T>(IComparableItem<T>[] inputArray)
         {
             for (int i = 0; i < inputArray.Length - 1; i++)
             {
                 for (int j = i + 1; j > 0; j--)
                 {
-                    if (inputArray[j - 1] > inputArray[j])
+                    if (inputArray[j - 1].CompareTo(inputArray[j].Item) > 0)
                     {
-                        int temp = inputArray[j - 1];
+                        IComparableItem<T> temp = inputArray[j - 1];
                         inputArray[j - 1] = inputArray[j];
                         inputArray[j] = temp;
                     }
@@ -27,7 +27,7 @@ namespace SortingAlgorithms
         }
 
 
-        public static int[] InsertionSortByShift(int[] inputArray)
+        public static IComparableItem<T>[] InsertionSortByShift<T>(IComparableItem<T>[] inputArray)
         {
             for (int i = 0; i < inputArray.Length - 1; i++)
             {
@@ -35,7 +35,7 @@ namespace SortingAlgorithms
                 var insertionValue = inputArray[i];
                 for (j = i; j > 0; j--)
                 {
-                    if (inputArray[j - 1] > insertionValue)
+                    if (inputArray[j - 1].CompareTo(insertionValue.Item) > 0)
                     {
                         inputArray[j] = inputArray[j - 1];
                     }
