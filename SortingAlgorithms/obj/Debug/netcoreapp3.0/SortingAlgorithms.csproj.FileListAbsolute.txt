@@ -1,0 +1,11 @@
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.exe
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.deps.json
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.runtimeconfig.json
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.runtimeconfig.dev.json
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.dll
+D:\Repos\SortingAlgorithms\SortingAlgorithms\bin\Debug\netcoreapp3.0\SortingAlgorithms.pdb
+D:\Repos\SortingAlgorithms\SortingAlgorithms\obj\Debug\netcoreapp3.0\SortingAlgorithms.csprojAssemblyReference.cache
+D:\Repos\SortingAlgorithms\SortingAlgorithms\obj\Debug\netcoreapp3.0\SortingAlgorithms.AssemblyInfoInputs.cache
+D:\Repos\SortingAlgorithms\SortingAlgorithms\obj\Debug\netcoreapp3.0\SortingAlgorithms.AssemblyInfo.cs
+D:\Repos\SortingAlgorithms\SortingAlgorithms\obj\Debug\netcoreapp3.0\SortingAlgorithms.dll
+D:\Repos\SortingAlgorithms\SortingAlgorithms\obj\Debug\netcoreapp3.0\SortingAlgorithms.pdb
