@@ -70,7 +70,9 @@ namespace SortingAlgorithms
         static SortResult<T> SortArrayWithTimeResult<T>(IComparableItem<T>[] array)
         {
             var startTime = DateTime.Now;
-            var sortedArray = QuickSort.Sort(array, 0, array.Length - 1);
+            //var sortedArray = QuickSort.Sort(array, 0, array.Length - 1);
+            //var sortedArray = InsertionSort.Sort(array);
+            var sortedArray = QuickSortMedianOfThree.Sort(array);
             var stopTime = DateTime.Now;
 
             var totalMilliseconds = (stopTime - startTime).TotalMilliseconds;

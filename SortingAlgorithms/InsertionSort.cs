@@ -27,7 +27,7 @@ namespace SortingAlgorithms
         }
 
 
-        public static IComparableItem<T>[] InsertionSortByShift<T>(IComparableItem<T>[] inputArray)
+        public static IComparableItem<T>[] SortByShift<T>(IComparableItem<T>[] inputArray)
         {
             for (int i = 0; i < inputArray.Length - 1; i++)
             {

@@ -13,9 +13,10 @@ namespace SortingAlgorithms
 
         /// Quicksort algorithm
         /// <param name="a">An array of Comparable items</param>
-        public static void Sort(IComparable[] a)
+        public static IComparableItem<T>[] Sort<T>(IComparableItem<T>[] a)
         {
             Sort(a, 0, a.Length - 1);
+            return a;
         }
 
         /// Internal quicksort method that makes recursive calls.
@@ -23,7 +24,7 @@ namespace SortingAlgorithms
         /// <param name="a">An array of Comparable items</param>
         /// <param name="low">The left-most index of the subarray</param>
         /// <param name="high">The right-most index of the subarray</param>
-        private static void Sort(IComparable[] a, int low, int high)
+        private static void Sort<T>(IComparableItem<T>[] a, int low, int high)
         {
             if (low + CUTOFF > high)
                 InsertionSort(a, low, high);
@@ -31,24 +32,24 @@ namespace SortingAlgorithms
             {
                 // Sort low, middle, high
                 int middle = (low + high) / 2;
-                if (a[middle].CompareTo(a[low]) < 0)
+                if (a[middle].CompareTo(a[low].Item) < 0)
                     SwapReferences(a, low, middle);
-                if (a[high].CompareTo(a[low]) < 0)
+                if (a[high].CompareTo(a[low].Item) < 0)
                     SwapReferences(a, low, high);
-                if (a[high].CompareTo(a[middle]) < 0)
+                if (a[high].CompareTo(a[middle].Item) < 0)
                     SwapReferences(a, middle, high);
 
                 // Place pivot at position high - 1
                 SwapReferences(a, middle, high - 1);
-                IComparable pivot = a[high - 1];
+                IComparableItem<T> pivot = a[high - 1];
 
                 // Begin partitioning
                 int i, j;
                 for (i = low, j = high - 1; ;)
                 {
-                    while (a[++i].CompareTo(pivot) < 0)
+                    while (a[++i].CompareTo(pivot.Item) < 0)
                         ;
-                    while (pivot.CompareTo(a[--j]) < 0)
+                    while (pivot.CompareTo(a[--j].Item) < 0)
                         ;
                     if (i >= j)
                         break;
@@ -64,12 +65,12 @@ namespace SortingAlgorithms
         }
 
         /// Method to swap to elements in an array.
-        /// <param name="a">An array of objects</param>
+        /// <param name="a">An array of comparable items</param>
         /// <param name="index1">The index of the first object</param>
         /// <param name="index2">The index of the second object</param>
-        private static void SwapReferences(object[] a, int index1, int index2)
+        private static void SwapReferences<T>(IComparableItem<T>[] a, int index1, int index2)
         {
-            object tmp = a[index1];
+            IComparableItem<T> tmp = a[index1];
             a[index1] = a[index2];
             a[index2] = tmp;
         }
@@ -79,14 +80,14 @@ namespace SortingAlgorithms
         /// <param name="a">An array of Comparable items</param>
         /// <param name="low">The left-most index of the subarray</param>
         /// <param name="high">The number of items to sort</param>
-        private static void InsertionSort(IComparable[] a, int low, int high)
+        private static void InsertionSort<T>(IComparableItem<T>[] a, int low, int high)
         {
             for (int p = low + 1; p <= high; p++)
             {
-                IComparable tmp = a[p];
+                IComparableItem<T> tmp = a[p];
                 int j;
 
-                for (j = p; j > low && tmp.CompareTo(a[j - 1]) < 0; j--)
+                for (j = p; j > low && tmp.CompareTo(a[j - 1].Item) < 0; j--)
                     a[j] = a[j - 1];
 
                 a[j] = tmp;
