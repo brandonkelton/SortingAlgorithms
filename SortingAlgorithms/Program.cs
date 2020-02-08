@@ -7,6 +7,9 @@ namespace SortingAlgorithms
 {
     class Program
     {
+        private const int ArrayCount = 5;
+        private const int RecordCount = 10000000;
+
         static void Main(string[] args)
         {
             Console.WriteLine();
@@ -23,18 +26,15 @@ namespace SortingAlgorithms
 
         private static void AutoRun()
         {
-            const int arrayCount = 5;
-            const int recordCount = 10000000;
-
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine($"Generating 'random number' arrays, each with {recordCount} records...");
+            Console.WriteLine($"Generating {ArrayCount} Sets of {RecordCount} Random Numbers...");
 
             // Build random number arrays
-            var randomNumberArrays = new List<IComparableItem<int>[]>(arrayCount);
-            for (int i=0; i<arrayCount; i++)
+            var randomNumberArrays = new List<IComparableItem<int>[]>(ArrayCount);
+            for (int i=0; i<ArrayCount; i++)
             {
-                randomNumberArrays.Add(GetRandomNumberArray(recordCount));
+                randomNumberArrays.Add(GetRandomNumberArray(RecordCount));
             }
 
             RunTestSort(randomNumberArrays, "Plain QuickSort", false, 0);
@@ -56,20 +56,18 @@ namespace SortingAlgorithms
 
         private static void RunTestSort(List<IComparableItem<int>[]> randomNumberArrays, string sortDetail, bool useMedianOfThree, int insertionSortCutoff)
         {
-            const int arrayCount = 5;
-            const int recordCount = 10000000;
-
             var resultList = new List<SortResult<int>>();
 
             Console.WriteLine();
-            Console.WriteLine($"Running {sortDetail} on {arrayCount} Sets of {recordCount} Records...");
+            Console.WriteLine($"Running {sortDetail} on {ArrayCount} Sets of {RecordCount} Records...");
 
             for (var i = 0; i < randomNumberArrays.Count; i++)
             {
                 var array = randomNumberArrays[i];
-                Console.WriteLine($"Sorting Set {i + 1}...");
+                Console.Write($"Sorting Set {i + 1}... ");
                 var copiedArray = array.Select(a => a).ToArray();
                 var sortResult = SortArrayWithTimeResult(sortDetail, copiedArray, useMedianOfThree, insertionSortCutoff);
+                Console.WriteLine($"Completed In {sortResult.TotalMilliseconds} ms");
                 Console.Write("Validating Sort... ");
                 if (IsSorted(sortResult))
                 {
@@ -82,9 +80,10 @@ namespace SortingAlgorithms
                 }
             }
 
-            Console.WriteLine("Saving Results...");
+            Console.Write("Saving Results... ");
             SaveResults(resultList);
             resultList.Clear();
+            Console.WriteLine("Done!");
         }
 
         private static bool IsSorted(SortResult<int> result)
@@ -98,6 +97,12 @@ namespace SortingAlgorithms
             }
 
             return true;
+        }
+
+        private static void CreateFile()
+        {
+            var header = "Algorithm,RunTime (ms),First 20 Values,Last 20 Values";
+            File.WriteAllText("D:\\CS4050\\QuickSortResults.csv", header);
         }
 
         private static void SaveResults(List<SortResult<int>> results)
