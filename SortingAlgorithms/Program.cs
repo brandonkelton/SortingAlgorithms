@@ -44,82 +44,130 @@ namespace SortingAlgorithms
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Plain QuickSort", array, false, 0));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Plain QuickSort", copiedArray, false, 0));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 10", array, false, 10));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 10", copiedArray, false, 10));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 15", array, false, 15));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 15", copiedArray, false, 15));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 20", array, false, 20));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 20", copiedArray, false, 20));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 50", array, false, 50));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 50", copiedArray, false, 50));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with Median of Three on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Median of Three", array, true, 0));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Median of Three", copiedArray, true, 0));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", array, true, 10));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", copiedArray, true, 10));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", array, true, 15));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", copiedArray, true, 15));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", array, true, 20));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", copiedArray, true, 20));
             }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 50", array, true, 50));
+                var copiedArray = array.Select(a => a).ToArray();
+                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 50", copiedArray, true, 50));
             }
 
+            Console.WriteLine("Saving Results...");
             SaveResults(resultList);
+            resultList.Clear();
 
             Console.WriteLine();
             Console.WriteLine();
@@ -131,7 +179,7 @@ namespace SortingAlgorithms
         {
             var resultsAsTextList = new List<string>();
             results.ForEach(r => resultsAsTextList.Add(r.ToString()));
-            File.WriteAllText("D:\\CS4050\\QuickSortResults.csv", String.Join("\r\n", resultsAsTextList));
+            File.AppendAllLines("D:\\CS4050\\QuickSortResults.csv", resultsAsTextList);
         }
 
         private static void RunWithPrompts()
