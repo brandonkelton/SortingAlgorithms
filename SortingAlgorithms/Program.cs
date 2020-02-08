@@ -10,7 +10,7 @@ namespace SortingAlgorithms
         static void Main(string[] args)
         {
             Console.WriteLine();
-            Console.Write("Would you like to just let this run automatically? (Y/n) ");
+            Console.Write("Would you like to automatically run all tests? (Alternative is prompt-driven) (Y/n) ");
             var response = Console.ReadKey();
             if (response.Key == ConsoleKey.Y)
             {
