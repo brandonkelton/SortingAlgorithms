@@ -36,233 +36,55 @@ namespace SortingAlgorithms
             {
                 randomNumberArrays.Add(GetRandomNumberArray(recordCount));
             }
-            
-            var resultList = new List<SortResult<int>>();
 
-            Console.WriteLine();
-            Console.WriteLine($"Running plain old QuickSort on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Plain QuickSort", copiedArray, false, 0);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 10", copiedArray, false, 10);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 15", copiedArray, false, 15);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 20", copiedArray, false, 20);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 50", copiedArray, false, 50);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with Median of Three on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Median of Three", copiedArray, true, 0);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", copiedArray, true, 10);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", copiedArray, true, 15);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", copiedArray, true, 20);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
-
-            Console.WriteLine();
-            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
-
-            foreach (var array in randomNumberArrays)
-            {
-                var copiedArray = array.Select(a => a).ToArray();
-                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 50", copiedArray, true, 50);
-                Console.WriteLine("Validating Sort...");
-                if (IsSorted(sortResult))
-                {
-                    resultList.Add(sortResult);
-                }
-                else
-                {
-                    throw new Exception("Array was not sorted correctly");
-                }
-            }
-
-            Console.WriteLine("Saving Results...");
-            SaveResults(resultList);
-            resultList.Clear();
+            RunTestSort(randomNumberArrays, "Plain QuickSort", false, 0);
+            RunTestSort(randomNumberArrays, "QuickSort with InsertionSort CutOff of 10", false, 10);
+            RunTestSort(randomNumberArrays, "QuickSort with InsertionSort CutOff of 15", false, 15);
+            RunTestSort(randomNumberArrays, "QuickSort with InsertionSort CutOff of 20", false, 20);
+            RunTestSort(randomNumberArrays, "QuickSort with InsertionSort CutOff of 50", false, 50);
+            RunTestSort(randomNumberArrays, "QuickSort with Median of Three", true, 0);
+            RunTestSort(randomNumberArrays, "QuickSort with Median of Three and InsertionSort CutOff of 10", true, 10);
+            RunTestSort(randomNumberArrays, "QuickSort with Median of Three and InsertionSort CutOff of 15", true, 15);
+            RunTestSort(randomNumberArrays, "QuickSort with Median of Three and InsertionSort CutOff of 20", true, 20);
+            RunTestSort(randomNumberArrays, "QuickSort with Median of Three and InsertionSort CutOff of 50", true, 50);
 
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Algorithm Tests Complete! Press any key to exit.");
             Console.ReadKey();
+        }
+
+        private static void RunTestSort(List<IComparableItem<int>[]> randomNumberArrays, string sortDetail, bool useMedianOfThree, int insertionSortCutoff)
+        {
+            const int arrayCount = 5;
+            const int recordCount = 10000000;
+
+            var resultList = new List<SortResult<int>>();
+
+            Console.WriteLine();
+            Console.WriteLine($"Running {sortDetail} on {arrayCount} Sets of {recordCount} Records...");
+
+            for (var i = 0; i < randomNumberArrays.Count; i++)
+            {
+                var array = randomNumberArrays[i];
+                Console.WriteLine($"Sorting Set {i + 1}...");
+                var copiedArray = array.Select(a => a).ToArray();
+                var sortResult = SortArrayWithTimeResult(sortDetail, copiedArray, useMedianOfThree, insertionSortCutoff);
+                Console.Write("Validating Sort... ");
+                if (IsSorted(sortResult))
+                {
+                    Console.WriteLine("Good!");
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception($"Array was not sorted correctly: {sortDetail}");
+                }
+            }
+
+            Console.WriteLine("Saving Results...");
+            SaveResults(resultList);
+            resultList.Clear();
         }
 
         private static bool IsSorted(SortResult<int> result)
