@@ -5,57 +5,101 @@ using System.Text;
 namespace SortingAlgorithms
 {
     /// <summary>
-    /// Original Source Code: https://www.w3resource.com/csharp-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-9.php
+    /// Code Derived From:
+    /// https://www.java-tips.org/java-se-tips-100019/24-java-lang/1896-quick-sort-implementation-with-median-of-three-partitioning-and-cutoff-for-small-arrays.html
+    /// https://www.geeksforgeeks.org/quick-sort/
     /// </summary>
     public class QuickSort
     {
-        public static IComparableItem<T>[] Sort<T>(IComparableItem<T>[] a, int left, int right)
-        {
-            if (left < right)
-            {
-                int pivot = Partition(a, left, right);
+        private bool UseMedianOfThree;
+        private int InsertionSortSize;
 
-                if (pivot > 1)
+        public QuickSort(bool useMedianOfThree, int insertionSortSize)
+        {
+            UseMedianOfThree = useMedianOfThree;
+            InsertionSortSize = insertionSortSize;
+        }
+
+        /// Quicksort algorithm
+        /// <param name="a">An array of Comparable items</param>
+        public IComparableItem<T>[] Sort<T>(IComparableItem<T>[] a)
+        {
+            Sort(a, 0, a.Length - 1);
+            return a;
+        }
+        
+        private void Sort<T>(IComparableItem<T>[] array, int low, int high)
+        {
+            if (InsertionSortSize > 0 && low + InsertionSortSize > high)
+                InsertionSort(array, low, high);
+            else if (low < high)
+            {
+                int partition;
+
+                if (UseMedianOfThree && low + 3 < high)
                 {
-                    Sort(a, left, pivot - 1);
+                    int middle = (low + high) / 2;
+                    if (array[middle].CompareTo(array[low].Item) < 0)
+                        Swap(array, low, middle);
+                    if (array[high].CompareTo(array[low].Item) < 0)
+                        Swap(array, low, high);
+                    if (array[high].CompareTo(array[middle].Item) < 0)
+                        Swap(array, middle, high);
                 }
-                if (pivot + 1 < right)
+
+                partition = Partition(array, low, high);
+
+                Sort(array, low, partition - 1);
+                Sort(array, partition + 1, high);
+            }
+        }
+
+        private int Partition<T>(IComparableItem<T>[] array, int low, int high)
+        {
+            IComparableItem<T> pivot = array[high];
+            int i = low - 1;
+
+            for (int j = low; j <= high - 1; j++)
+            {
+                if (array[j].CompareTo(pivot.Item) < 0)
                 {
-                    Sort(a, pivot + 1, right);
+                    i++;
+                    Swap(array, i, j);
                 }
             }
 
-            return a;
+            i++;
+            Swap(array, i, high);
+            return i;
+        } 
+
+        /// Method to swap to elements in an array.
+        /// <param name="a">An array of comparable items</param>
+        /// <param name="index1">The index of the first object</param>
+        /// <param name="index2">The index of the second object</param>
+        private void Swap<T>(IComparableItem<T>[] a, int index1, int index2)
+        {
+            IComparableItem<T> tmp = a[index1];
+            a[index1] = a[index2];
+            a[index2] = tmp;
         }
 
-        private static int Partition<T>(IComparableItem<T>[] a, int left, int right)
+
+        /// Internal insertion sort routine
+        /// <param name="a">An array of Comparable items</param>
+        /// <param name="low">The left-most index of the subarray</param>
+        /// <param name="high">The number of items to sort</param>
+        private void InsertionSort<T>(IComparableItem<T>[] a, int low, int high)
         {
-            IComparableItem<T> pivot = a[left];
-
-            while (true)
+            for (int p = low + 1; p <= high; p++)
             {
-                while (a[left].CompareTo(pivot.Item) < 0)
-                {
-                    left++;
-                }
+                IComparableItem<T> tmp = a[p];
+                int j;
 
-                while (a[right].CompareTo(pivot.Item) > 0)
-                {
-                    right--;
-                }
+                for (j = p; j > low && tmp.CompareTo(a[j - 1].Item) < 0; j--)
+                    a[j] = a[j - 1];
 
-                if (left < right)
-                {
-                    if (a[left].CompareTo(a[right].Item) == 0) return right;
-
-                    IComparableItem<T> temp = a[left];
-                    a[left] = a[right];
-                    a[right] = temp;
-                }
-                else
-                {
-                    return right;
-                }
+                a[j] = tmp;
             }
         }
     }
