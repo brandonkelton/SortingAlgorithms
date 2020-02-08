@@ -23,10 +23,15 @@ namespace SortingAlgorithms
 
         private static void AutoRun()
         {
-            Console.WriteLine("Generating random number arrays, each with 100 million records...");
+            const int arrayCount = 5;
+            const int recordCount = 10000000;
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"Generating 'random number' arrays, each with {recordCount} records...");
 
             // Build random number arrays
-            var randomNumberArrays = new List<IComparableItem<int>[]>(10);
+            var randomNumberArrays = new List<IComparableItem<int>[]>(arrayCount);
             for (int i=0; i<10; i++)
             {
                 randomNumberArrays.Add(GetRandomNumberArray(100000000));
@@ -34,70 +39,80 @@ namespace SortingAlgorithms
             
             var resultList = new List<SortResult<int>>();
 
-            Console.WriteLine("Running plain old QuickSort on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running plain old QuickSort on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("Plain QuickSort", array, false, 0));
             }
 
-            Console.WriteLine("Running QuickSort with InsertionSort cutoff of 10 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 10", array, false, 10));
             }
 
-            Console.WriteLine("Running QuickSort with InsertionSort cutoff of 15 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 15", array, false, 15));
             }
 
-            Console.WriteLine("Running QuickSort with InsertionSort cutoff of 20 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 20", array, false, 20));
             }
 
-            Console.WriteLine("Running QuickSort with InsertionSort cutoff of 50 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 50", array, false, 50));
             }
 
-            Console.WriteLine("Running QuickSort with Median of Three on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with Median of Three on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("Median of Three", array, true, 0));
             }
 
-            Console.WriteLine("Running QuickSort with Median of Three and InsertionSort cutoff of 10 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 10 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", array, true, 10));
             }
 
-            Console.WriteLine("Running QuickSort with Median of Three and InsertionSort cutoff of 15 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 15 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", array, true, 15));
             }
 
-            Console.WriteLine("Running QuickSort with Median of Three and InsertionSort cutoff of 20 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 20 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
                 resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", array, true, 20));
             }
 
-            Console.WriteLine("Running QuickSort with Median of Three and InsertionSort cutoff of 50 on 10 sets of 100 million records...");
+            Console.WriteLine();
+            Console.WriteLine($"Running QuickSort with Median of Three and InsertionSort cutoff of 50 on {arrayCount} sets of {recordCount} records...");
 
             foreach (var array in randomNumberArrays)
             {
@@ -106,6 +121,7 @@ namespace SortingAlgorithms
 
             SaveResults(resultList);
 
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Algorithm Tests Complete! Press any key to exit.");
             Console.ReadKey();
