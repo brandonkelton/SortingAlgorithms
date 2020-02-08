@@ -20,7 +20,7 @@ namespace SortingAlgorithms
 
         public override string ToString()
         {
-            return $"{Identifier}\t{TotalMilliseconds}\t{SortedArray.Take(10).Select(a => a.Item)}\t{SortedArray.Skip(SortedArray.Length - 10).Select(a => a.Item)}";
+            return $"{Identifier},{TotalMilliseconds},{String.Join("  ", SortedArray.Take(10).Select(a => a.Item.ToString()).ToArray())},{String.Join("  ", SortedArray.Skip(SortedArray.Length - 10).Select(a => a.Item.ToString()))}";
         }
     }
 }

@@ -45,7 +45,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Plain QuickSort", copiedArray, false, 0));
+                var sortResult = SortArrayWithTimeResult("Plain QuickSort", copiedArray, false, 0);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -58,7 +67,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 10", copiedArray, false, 10));
+                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 10", copiedArray, false, 10);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -71,7 +89,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 15", copiedArray, false, 15));
+                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 15", copiedArray, false, 15);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -84,7 +111,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 20", copiedArray, false, 20));
+                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 20", copiedArray, false, 20);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -97,7 +133,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("InsertionSort Cutoff = 50", copiedArray, false, 50));
+                var sortResult = SortArrayWithTimeResult("InsertionSort Cutoff = 50", copiedArray, false, 50);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -110,7 +155,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Median of Three", copiedArray, true, 0));
+                var sortResult = SortArrayWithTimeResult("Median of Three", copiedArray, true, 0);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -123,7 +177,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", copiedArray, true, 10));
+                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 10", copiedArray, true, 10);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -136,7 +199,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", copiedArray, true, 15));
+                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 15", copiedArray, true, 15);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -149,7 +221,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", copiedArray, true, 20));
+                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 20", copiedArray, true, 20);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -162,7 +243,16 @@ namespace SortingAlgorithms
             foreach (var array in randomNumberArrays)
             {
                 var copiedArray = array.Select(a => a).ToArray();
-                resultList.Add(SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 50", copiedArray, true, 50));
+                var sortResult = SortArrayWithTimeResult("Median of Three with InsertionSort Cutoff = 50", copiedArray, true, 50);
+                Console.WriteLine("Validating Sort...");
+                if (IsSorted(sortResult))
+                {
+                    resultList.Add(sortResult);
+                }
+                else
+                {
+                    throw new Exception("Array was not sorted correctly");
+                }
             }
 
             Console.WriteLine("Saving Results...");
@@ -173,6 +263,19 @@ namespace SortingAlgorithms
             Console.WriteLine();
             Console.WriteLine("Algorithm Tests Complete! Press any key to exit.");
             Console.ReadKey();
+        }
+
+        private static bool IsSorted(SortResult<int> result)
+        {
+            for (int i=1; i<result.SortedArray.Length; i++)
+            {
+                if (result.SortedArray[i].CompareTo(result.SortedArray[i - 1].Item) < 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private static void SaveResults(List<SortResult<int>> results)
