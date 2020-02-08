@@ -32,9 +32,9 @@ namespace SortingAlgorithms
 
             // Build random number arrays
             var randomNumberArrays = new List<IComparableItem<int>[]>(arrayCount);
-            for (int i=0; i<10; i++)
+            for (int i=0; i<arrayCount; i++)
             {
-                randomNumberArrays.Add(GetRandomNumberArray(100000000));
+                randomNumberArrays.Add(GetRandomNumberArray(recordCount));
             }
             
             var resultList = new List<SortResult<int>>();
