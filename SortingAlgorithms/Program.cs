@@ -172,6 +172,9 @@ namespace SortingAlgorithms
             Console.WriteLine();
             Console.WriteLine("Sorting Complete!");
             Console.WriteLine($"Sort Time in Milliseconds: {sortResult.TotalMilliseconds}");
+            Console.Write("Validating Sort... ");
+            if (IsSorted(sortResult)) Console.WriteLine("Good!");
+            else Console.WriteLine("BAD!");
 
             Console.WriteLine();
             Console.Write("Would you like to view the sorted array? (Y/n) ");

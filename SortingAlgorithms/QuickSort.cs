@@ -46,7 +46,7 @@ namespace SortingAlgorithms
                     if (array[high].CompareTo(array[middle].Item) < 0)
                         Swap(array, middle, high);
                 }
-
+                
                 partition = Partition(array, low, high);
 
                 Sort(array, low, partition - 1);
