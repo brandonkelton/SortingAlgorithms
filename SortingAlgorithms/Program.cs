@@ -103,7 +103,7 @@ namespace SortingAlgorithms
 
         private static void CreateFile()
         {
-            var header = "Algorithm,RunTime (ms),First 20 Values,Last 20 Values";
+            var header = "Algorithm,RunTime (ms),First 20 Values,Last 20 Values\r\n";
             File.WriteAllText("D:\\CS4050\\QuickSortResults.csv", header);
         }
 
