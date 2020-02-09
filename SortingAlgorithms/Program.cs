@@ -26,6 +26,8 @@ namespace SortingAlgorithms
 
         private static void AutoRun()
         {
+            CreateFile();
+
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine($"Generating {ArrayCount} Sets of {RecordCount} Random Numbers...");
