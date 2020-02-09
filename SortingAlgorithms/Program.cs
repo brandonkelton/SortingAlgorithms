@@ -20,7 +20,17 @@ namespace SortingAlgorithms
                 AutoRun();
             } else
             {
-                RunWithPrompts();
+                Console.WriteLine();
+                Console.WriteLine("Run Plain QuickSort with 10 Random Integers 10 Times? (Y/n) ");
+                var qsResponse = Console.ReadKey();
+                if (qsResponse.Key == ConsoleKey.Y)
+                {
+                    RunPlainQuickSort();
+                }
+                else
+                {
+                    RunWithPrompts();
+                }
             }
         }
 
@@ -112,6 +122,39 @@ namespace SortingAlgorithms
             var resultsAsTextList = new List<string>();
             results.ForEach(r => resultsAsTextList.Add(r.ToString()));
             File.AppendAllLines("D:\\CS4050\\QuickSortResults.csv", resultsAsTextList);
+        }
+
+        private static void RunPlainQuickSort()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Generating random number array of size 10...");
+
+            var array = GetRandomNumberArray(10);
+
+            Console.WriteLine();
+            Console.Write("Sorting...");
+
+            var sortResult = SortArrayWithTimeResult("Manual Execution", array, false, 0);
+
+            Console.WriteLine();
+            Console.WriteLine("Sorting Complete!");
+            Console.WriteLine($"Sort Time in Milliseconds: {sortResult.TotalMilliseconds}");
+            Console.Write("Validating Sort... ");
+            if (IsSorted(sortResult)) Console.WriteLine("Good!");
+            else Console.WriteLine("BAD!");
+
+            Console.WriteLine();
+            Console.Write("Would you like to view the sorted array? (Y/n) ");
+            var sortResponseQuery = Console.ReadKey();
+            if (sortResponseQuery.Key == ConsoleKey.Y)
+            {
+                Console.WriteLine();
+                Console.WriteLine(string.Join(' ', sortResult.SortedArray.Select(a => a.ToString())));
+            }
+
+            Console.WriteLine();
+            Console.Write("Press any key to exit...");
+            Console.ReadKey();
         }
 
         private static void RunWithPrompts()

@@ -34,8 +34,6 @@ namespace SortingAlgorithms
                 InsertionSort(array, low, high);
             else if (low < high)
             {
-                int partition;
-
                 if (UseMedianOfThree && low + 3 < high)
                 {
                     int middle = (low + high) / 2;
@@ -47,29 +45,43 @@ namespace SortingAlgorithms
                         Swap(array, middle, high);
                 }
                 
-                partition = Partition(array, low, high);
+                int partition = Partition(array, low, high);
 
-                Sort(array, low, partition - 1);
+                Sort(array, low, partition);
                 Sort(array, partition + 1, high);
             }
         }
 
         private int Partition<T>(IComparableItem<T>[] array, int low, int high)
         {
-            IComparableItem<T> pivot = array[high];
-            int i = low - 1;
+            int middle = (low + high) / 2;
+            IComparableItem<T> pivot = array[middle];
+            Swap(array, middle, high);
 
-            for (int j = low; j <= high - 1; j++)
+            int i = low;
+            int j = high - 1;
+
+            while (true)
             {
-                if (array[j].CompareTo(pivot.Item) < 0)
+                while (i < j && array[i].CompareTo(pivot.Item) <= 0) i++;
+                while (j > i && array[j].CompareTo(pivot.Item) >= 0) j--;
+
+                if (i != j)
                 {
-                    i++;
                     Swap(array, i, j);
+                }
+                
+                if (i >= j)
+                {
+                   break;
                 }
             }
 
-            i++;
-            Swap(array, i, high);
+            if (array[i].CompareTo(array[high].Item) > 0)
+            {
+                Swap(array, i, high);
+            }
+
             return i;
         } 
 
