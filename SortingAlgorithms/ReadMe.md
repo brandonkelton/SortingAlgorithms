@@ -8,25 +8,25 @@ Table 1. Quick Sort Algorithm Results
 
 Algorithm	Run Time (ms)
 
-Plain Quick Sort	4398.15036
+Plain Quick Sort:	4398.15036
 
-Quick Sort with Insertion Sort Cutoff of 10	3581.34146
+Quick Sort with Insertion Sort Cutoff of 10:	3581.34146
 
-Quick Sort with Insertion Sort Cutoff of 15	3878.353
+Quick Sort with Insertion Sort Cutoff of 15:	3878.353
 
-Quick Sort with Insertion Sort Cutoff of 20	3446.16366
+Quick Sort with Insertion Sort Cutoff of 20:	3446.16366
 
-Quick Sort with Insertion Sort Cutoff of 50	3673.77414
+Quick Sort with Insertion Sort Cutoff of 50:	3673.77414
 
-Quick Sort Median of Three	4351.25262
+Quick Sort Median of Three:	4351.25262
 
-QuickSort with Median of Three and InsertionSort CutOff of 10	3730.47664
+QuickSort with Median of Three and InsertionSort CutOff of 10:	3730.47664
 
-QuickSort with Median of Three and InsertionSort CutOff of 15	3617.03658
+QuickSort with Median of Three and InsertionSort CutOff of 15:	3617.03658
 
-QuickSort with Median of Three and InsertionSort CutOff of 20	3477.04902
+QuickSort with Median of Three and InsertionSort CutOff of 20:	3477.04902
 
-QuickSort with Median of Three and InsertionSort CutOff of 50	3476.55314
+QuickSort with Median of Three and InsertionSort CutOff of 50:	3476.55314
 
 
 I created a console application in C#, which is very similar to Java, and added prompts so that I could test regular Quick Sort and various combinations of Quick Sort with Median of Three and Insertion Sort.  Additionally, I wrote functionality to apply these algorithms in an automated assortment of timed tests that, upon completion, save their results to a file for later analysis.
