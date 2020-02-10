@@ -50,7 +50,10 @@ Worst Case:  		T(n) = T(n-1) + θ(n)			->	θ(n2)
 References
 
 https://stackoverflow.com/questions/7559608/median-of-three-values-strategy
+
 https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/
+
 https://www.java-tips.org/java-se-tips-100019/24-java-lang/1896-quick-sort-implementation-with-median-of-three-partitioning-and-cutoff-for-small-arrays.html
+
 https://www.geeksforgeeks.org/quick-sort/
 
