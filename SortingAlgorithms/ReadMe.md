@@ -1,8 +1,11 @@
 ﻿This paper examines the Quick Sort algorithm and analyzes a few implementation variations.  This research involved three distinct applications, plain old Quick Sort, Median of Three and applying Insertion Sort at a specific cutoff point.  Each algorithm execution was timed strictly around the sorting function so that other functions did not influence the overall run time.  Each algorithm was executed five times with each of those five iterations involving a distinct random integer array of size 10 million.
+
 There are various algorithms that can be applied to a data set with each algorithm applicable to specific circumstances. Quick Sort is an extremely fast algorithm that breaks up an array into subarrays, selects a pivot from each subarray and then swaps values around that pivot so that lower values are below the pivot and higher values are above the pivot.  It does this recursively such that each pivot value indicates a partition, separating lower values from higher values, at which point the algorithm is called again on each partition.  In the end, the final subarrays contain one value with nothing more to sort.  
+
 The two algorithm modifications I applied make small tweaks to the overall Quick Sort function.  Median of Three is a technique that helps prevent inadvertently selecting bad pivots, which may occasionally result in longer sort times if the pivot value happens to be the highest or lowest value in the subarray.  Insertion Sort is very fast for arrays that are mostly sorted, so applying it near the end of a Quick Sort can result in an improvement of the algorithm’s speed.
 
 Table 1, below, provides the average run times of each algorithm.  To minimize data set influenced variation of the results, I created five distinct arrays of random integers and then copied the arrays for each algorithm execution so that each algorithm ran against the same unsorted set of arrays that each other algorithm ran against.  More specifically, the plain Quick Sort algorithm ran five times with each iteration using a distinct unsorted array, while the Quick Sort with Median of Three used a copy of those same arrays, and so forth.
+
 
 Table 1. Quick Sort Algorithm Results
 
