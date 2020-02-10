@@ -22,29 +22,29 @@ namespace SortingAlgorithms
 
         /// Quicksort algorithm
         /// <param name="a">An array of Comparable items</param>
-        public IComparableItem<T>[] Sort<T>(IComparableItem<T>[] a)
+        public int[] Sort(int[] a)
         {
             Sort(a, 0, a.Length - 1);
             return a;
         }
         
-        private void Sort<T>(IComparableItem<T>[] array, int low, int high)
+        private void Sort(int[] array, int low, int high)
         {
             if (InsertionSortSize > 0 && low + InsertionSortSize > high)
-                InsertionSort(array, low, high);
+                return;
             else if (low < high)
             {
                 if (UseMedianOfThree && low + 3 < high)
                 {
                     int middle = (low + high) / 2;
-                    if (array[middle].CompareTo(array[low].Item) < 0)
+                    if (array[middle].CompareTo(array[low]) < 0)
                         Swap(array, low, middle);
-                    if (array[high].CompareTo(array[low].Item) < 0)
+                    if (array[high].CompareTo(array[low]) < 0)
                         Swap(array, low, high);
-                    if (array[high].CompareTo(array[middle].Item) < 0)
+                    if (array[high].CompareTo(array[middle]) < 0)
                         Swap(array, middle, high);
                 }
-                
+
                 int partition = Partition(array, low, high);
 
                 Sort(array, low, partition);
@@ -52,10 +52,10 @@ namespace SortingAlgorithms
             }
         }
 
-        private int Partition<T>(IComparableItem<T>[] array, int low, int high)
+        private int Partition(int[] array, int low, int high)
         {
             int middle = (low + high) / 2;
-            IComparableItem<T> pivot = array[middle];
+            int pivot = array[middle];
             Swap(array, middle, high);
 
             int i = low;
@@ -63,8 +63,8 @@ namespace SortingAlgorithms
 
             while (true)
             {
-                while (i < j && array[i].CompareTo(pivot.Item) <= 0) i++;
-                while (j > i && array[j].CompareTo(pivot.Item) >= 0) j--;
+                while (i < j && array[i].CompareTo(pivot) <= 0) i++;
+                while (j > i && array[j].CompareTo(pivot) >= 0) j--;
 
                 if (i != j)
                 {
@@ -77,7 +77,7 @@ namespace SortingAlgorithms
                 }
             }
 
-            if (array[i].CompareTo(array[high].Item) > 0)
+            if (array[i].CompareTo(array[high]) > 0)
             {
                 Swap(array, i, high);
             }
@@ -89,9 +89,9 @@ namespace SortingAlgorithms
         /// <param name="a">An array of comparable items</param>
         /// <param name="index1">The index of the first object</param>
         /// <param name="index2">The index of the second object</param>
-        private void Swap<T>(IComparableItem<T>[] a, int index1, int index2)
+        private void Swap(int[] a, int index1, int index2)
         {
-            IComparableItem<T> tmp = a[index1];
+            int tmp = a[index1];
             a[index1] = a[index2];
             a[index2] = tmp;
         }
@@ -101,14 +101,14 @@ namespace SortingAlgorithms
         /// <param name="a">An array of Comparable items</param>
         /// <param name="low">The left-most index of the subarray</param>
         /// <param name="high">The number of items to sort</param>
-        private void InsertionSort<T>(IComparableItem<T>[] a, int low, int high)
+        public void InsertionSort(int[] a, int low, int high)
         {
             for (int p = low + 1; p <= high; p++)
             {
-                IComparableItem<T> tmp = a[p];
+                int tmp = a[p];
                 int j;
 
-                for (j = p; j > low && tmp.CompareTo(a[j - 1].Item) < 0; j--)
+                for (j = p; j > low && tmp.CompareTo(a[j - 1]) < 0; j--)
                     a[j] = a[j - 1];
 
                 a[j] = tmp;
